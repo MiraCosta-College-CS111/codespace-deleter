@@ -6,11 +6,11 @@ from ghapi.page import paged
 
 
 @click.command()
-@click.option('--dry/--no-dry', default=False, help="Don't do any deletions.")
+@click.option('--dry/--no-dry', default=False, help="Don't do any deletions (dry run).")
 @click.option('--token',
               default=lambda: os.environ.get('GITHUB_TOKEN'),
               type=str,
-              help="GitHub Personal Access Token to use.",
+              help="GitHub Personal Access Token to use. Can also be set via the GITHUB_TOKEN environment variable.",
               required=True)
 def main(dry, token):
     api = GhApi(authenticate=True, token=token)
