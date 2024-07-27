@@ -49,7 +49,7 @@ def main(dry, token):
     for codespace in organization_to_spaces[org]:
         click.echo(f'Deleting {codespace}...')
         if not dry:
-            api.codespaces.delete(codespace)
+            api.codespaces.delete_for_authenticated_user(codespace)
 
     click.echo('Done!')
 
